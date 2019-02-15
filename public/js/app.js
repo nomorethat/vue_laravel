@@ -68,13 +68,16 @@
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(1);
-module.exports = __webpack_require__(2);
+module.exports = __webpack_require__(4);
 
 
 /***/ }),
 /* 1 */
-/***/ (function(module, exports) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__route__ = __webpack_require__(2);
 
 /**
  * First we will load all of this project's JavaScript dependencies which
@@ -98,8 +101,45 @@ const app = new Vue({
     el: '#app'
 });*/
 
+
+console.log(Object(__WEBPACK_IMPORTED_MODULE_0__route__["a" /* default */])('login'));
+
 /***/ }),
 /* 2 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+// файл будет неким скриптом-посредником, который будет обрабатывать
+// те маршруты, которые хранятся в файле "routes.json".
+
+var routes = __webpack_require__(3);
+
+/* harmony default export */ __webpack_exports__["a"] = (function () {
+    var args = Array.prototype.slice.call(arguments);
+    var name = args.shift();
+
+    if (routes[name] === undefined) {
+        console.log('Error 404');
+    } else {
+        return '/' + routes[name].split('/').map(function (str) {
+            if (str[0] == '{') {
+                return args.shift();
+            } else {
+                return str;
+            }
+        }).join('/');
+        ;
+    }
+});
+
+/***/ }),
+/* 3 */
+/***/ (function(module, exports) {
+
+module.exports = {"":"api/user","home":"/","login":"login"}
+
+/***/ }),
+/* 4 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
