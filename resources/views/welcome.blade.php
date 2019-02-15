@@ -66,6 +66,7 @@
         <script src="{{ asset('js/app.js') }}" defer></script>
     </head>
     <body>
+        <div id="app"></div>
         <div class="flex-center position-ref full-height">
             @if (Route::has('login'))
                 <div class="top-right links">
