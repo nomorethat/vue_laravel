@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App;
+//use App;
 
 class UserController extends Controller
 {
@@ -14,9 +14,18 @@ class UserController extends Controller
      */
     public function index()
     {
-        $users = User::all();
-        return responce()->json([
-           'users' => $users->toArray()
+        $users = \App\User::all();
+        return response()->json([
+            'users' => $users->toArray()
+        ]);
+    }
+
+    public function show($id)
+    {
+        $model = new \App\Access;
+        $projects = $model->getProjectsByID($id);
+        return response()->json([
+            'projects' => $projects->toArray()
         ]);
     }
 
@@ -47,10 +56,7 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
-    {
-        //
-    }
+
 
     /**
      * Show the form for editing the specified resource.
