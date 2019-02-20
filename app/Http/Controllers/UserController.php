@@ -3,7 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+<<<<<<< HEAD
 //use App;
+=======
+// use App;
+>>>>>>> 1c062495702628a05cf3a4ad9ae52dcc06ffcca9
 
 class UserController extends Controller
 {
@@ -15,6 +19,7 @@ class UserController extends Controller
     public function index()
     {
         $users = \App\User::all();
+<<<<<<< HEAD
         //dd($users);
         return response()->json([
             'users' => $users->toArray()
@@ -27,6 +32,10 @@ class UserController extends Controller
         $projects = $model->getProjectsByID($id);
         return response()->json([
             'projects' => $projects->toArray()
+=======
+        return response()->json([
+           'users' => $users->toArray()
+>>>>>>> 1c062495702628a05cf3a4ad9ae52dcc06ffcca9
         ]);
     }
 

@@ -1,4 +1,8 @@
 <IfModule mod_rewrite.c>
     RewriteEngine On
     RewriteRule ^ public/index.php [L]
+<<<<<<< HEAD
 </IfModule>
+=======
+</IfModule>
+>>>>>>> 1c062495702628a05cf3a4ad9ae52dcc06ffcca9
