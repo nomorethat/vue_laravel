@@ -4,8 +4,8 @@
             <td>Пользователь</td>
             <td>E-mail</td>
         </tr>
-        <tr v-for="user in users">
-            <td>{{ user.name }}</td>
+        <tr v-for="(user, index) in users">
+            <router-link :to="{path: '/users/' + (index + 1)}">{{ user.name }}</router-link>
             <td>{{ user.email }}</td>
         </tr>
     </table>
@@ -23,7 +23,7 @@
        },
        methods: {
             getUsers(){
-                axios.get(r('users.index')).then((response) => {
+                axios.get(r('users.show')).then((response) => {
                     this.users = response.data.users;
                 });
 
